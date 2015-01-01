@@ -42,7 +42,7 @@ public class BinaryClockWidget extends AppWidgetProvider {
                 || Intent.ACTION_TIMEZONE_CHANGED.equals(action)
                 || Intent.ACTION_DATE_CHANGED.equals(action)
                 || Intent.ACTION_LOCALE_CHANGED.equals(action)
-		        || Intent.ACTION_TIME_TICK.equals(action)   //TODO time tick does not work
+//		        || Intent.ACTION_TIME_TICK.equals(action)   //time tick does not work
                 || "android.intent.action.ALARM_CHANGED".equals(action)) {
             //updateAppWidget(context, null);
             if (D) Log.i(TAG, "Received time/date/etc. update intent, refreshing");
@@ -52,6 +52,7 @@ public class BinaryClockWidget extends AppWidgetProvider {
     }
     @Override
     public void onAppWidgetOptionsChanged(Context context, AppWidgetManager appWidgetManager, int appWidgetId, Bundle bundle) {
+	    //TODO: scale
         int minWidth = bundle.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH);
         int maxWidth = bundle.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_WIDTH);
         int minHeight = bundle.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);

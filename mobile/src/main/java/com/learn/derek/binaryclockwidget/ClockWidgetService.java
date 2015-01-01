@@ -6,7 +6,6 @@ import android.appwidget.AppWidgetProviderInfo;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -14,10 +13,6 @@ import android.widget.RemoteViews;
 import com.learn.derek.binaryclockwidget.misc.BinaryUtil;
 import com.learn.derek.binaryclockwidget.misc.Constants;
 import com.learn.derek.binaryclockwidget.misc.Utils;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 
 /**
@@ -119,31 +114,20 @@ public class ClockWidgetService extends IntentService {
 		}
 	}
 	private void refreshClock(RemoteViews remoteViews){
-
-		Locale locale = Locale.getDefault();
-		Date now = new Date();
-		String dateFormat = getString(R.string.no_wday_month_day_no_year);
-		CharSequence date = DateFormat.format(dateFormat, now);
-		String week = new SimpleDateFormat(getString(R.string.full_wday), locale).format(now);
-
-		String hours = new SimpleDateFormat(getHourFormat(), locale).format(now);
-		String minutes = new SimpleDateFormat(getString(R.string.widget_12_hours_format_no_ampm_m),
-				locale).format(now);
-
-		remoteViews.setTextViewText(R.id.tv_wday, week);
-		remoteViews.setTextViewText(R.id.tv_date, date);
-		remoteViews.setTextViewText(R.id.tv_time, hours + " : " + minutes);
+		if (mUtil == null) mUtil = new BinaryUtil(this, remoteViews, true);
+		mUtil.update(remoteViews);
 
 		//using BinaryUtil();
-		mUtil = new BinaryUtil(this, remoteViews, Integer.parseInt(hours), Integer.parseInt(minutes));
+		//mUtil = new BinaryUtil(this, remoteViews, Integer.parseInt(hours), Integer.parseInt(minutes));
+
 	}
-	private String getHourFormat() {
-		String format;
-		if (DateFormat.is24HourFormat(this)) {
-			format = getString(R.string.widget_24_hours_format_h_api_16);
-		} else {
-			format = getString(R.string.widget_12_hours_format_h);
-		}
-		return format;
-	}
+//	private String getHourFormat() {
+//		String format;
+//		if (DateFormat.is24HourFormat(this)) {
+//			format = getString(R.string.widget_24_hours_format_h_api_16);
+//		} else {
+//			format = getString(R.string.widget_12_hours_format_h);
+//		}
+//		return format;
+//	}
 }
