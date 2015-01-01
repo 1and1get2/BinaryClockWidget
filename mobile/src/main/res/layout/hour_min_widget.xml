@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:andorid="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:padding="@dimen/widget_margin"
+             android:background="@drawable/appwidget_dark_bg"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+	    <LinearLayout
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:id="@+id/cell_layer"
+		    android:layout_marginLeft="10dp"
+		    android:layout_marginRight="10dp"
+		    android:layout_below="@+id/tv_wday"
+		    android:layout_above="@+id/tv_date"
+	        android:orientation="horizontal"
+	        android:layout_centerInParent="true"
+		    >
+		    <LinearLayout
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:orientation="horizontal"
+			    android:layout_weight="0.5"
+			    android:id="@+id/cell_hour_layer"
+			    >
+			    <LinearLayout
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:orientation="vertical"
+				    android:layout_weight="0.5"
+				    android:id="@+id/cell_3"
+				    >
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_3_3">
+
+				    </FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_3_2">
+
+				    </FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_3_1">
+
+				    </FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_3_0">
+
+				    </FrameLayout>
+			    </LinearLayout>
+			    <LinearLayout
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:orientation="vertical"
+				    android:layout_weight="0.5"
+				    android:id="@+id/cell_2"
+				    >
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_2_3">
+
+				    </FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_2_2">
+
+				    </FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_2_1">
+
+				    </FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_2_0">
+
+				    </FrameLayout>
+			    </LinearLayout>
+		    </LinearLayout>
+
+		    <LinearLayout
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:orientation="horizontal"
+			    android:layout_weight="0.5"
+			    android:id="@+id/cell_min_layer"
+			    >
+
+			    <LinearLayout
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:orientation="vertical"
+				    android:layout_weight="0.5"
+				    android:id="@+id/cell_1"
+				    >
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_1_3">
+
+					</FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_1_2">
+
+					</FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_1_1">
+
+					</FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_1_0">
+
+				    </FrameLayout>
+			    </LinearLayout>
+			    <LinearLayout
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:orientation="vertical"
+				    android:layout_weight="0.5"
+				    android:id="@+id/cell_0"
+				    >
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_0_3">
+
+					</FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_0_2">
+
+					</FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_0_1">
+
+					</FrameLayout>
+				    <FrameLayout
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_alignParentBottom="true"
+					    android:layout_alignParentEnd="true"
+					    android:layout_weight="0.25"
+					    android:id="@+id/cell_0_0">
+
+				    </FrameLayout>
+			    </LinearLayout>
+		    </LinearLayout>
+
+
+	    </LinearLayout>
+
+	    <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="Monday"
+		    android:id="@+id/tv_wday"
+		    android:layout_alignParentTop="true"
+		    android:layout_alignParentStart="true"
+		    android:singleLine="true" />
+	    <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="Date"
+		    android:id="@+id/tv_date"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignParentEnd="true"
+		    android:singleLine="true" />
+    </RelativeLayout>
+
+</FrameLayout>
