@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.RemoteViews;
 
 import com.learn.derek.binaryclockwidget.misc.Constants;
@@ -63,7 +64,7 @@ public class BinaryClockWidget extends AppWidgetProvider {
 
         Log.i(TAG, "onAppWidgetOptionsChanged");
         /* Set some stuff in your layout here */
-        appWidgetManager.updateAppWidget(appWidgetId, rv);
+        //appWidgetManager.updateAppWidget(appWidgetId, rv);
     }
 
     @Override
@@ -107,9 +108,15 @@ public class BinaryClockWidget extends AppWidgetProvider {
 
         CharSequence widgetText = BinaryClockWidgetConfigureActivity.loadTitlePref(context, appWidgetId);
         // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.binary_clock_widget);
-        views.setTextViewText(R.id.appwidget_text, widgetText);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.hour_min_widget);
 
+	    views.setTextViewText(R.id.tv_date, widgetText);
+	    int x,y;
+	    x = (int)Math.random()*4; y = (int)Math.random()*4;
+	    ImageView iv = new ImageView(context);
+	    iv.setImageResource(R.drawable.appwidget_dark_bg_focused);
+	    //FrameLayout fl = (FrameLayout) views.setImageViewResource();
+	    views.setImageViewResource(R.id.imageView_cell_3_3, R.drawable.appwidget_dark_bg_focused);
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }
