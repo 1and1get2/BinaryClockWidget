@@ -16,6 +16,6 @@ public class Constants {
 		private final int id;
 		CELL_TYPE(int id) { this.id = id; }
 		public int getValue() { return id; }
-	};
+	}
 
 }

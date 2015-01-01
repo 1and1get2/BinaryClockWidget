@@ -29,4 +29,6 @@
 
 	<string name="no_wday_month_day_no_year">MMMM d</string>
 	<string name="full_wday">EEEE</string>
+
+	<string name="cell_image">Cell Image</string>
 </resources>

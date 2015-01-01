@@ -31,6 +31,7 @@ public class BinaryUtil {
 		if (D) Log.v(TAG, "Constructor with 3 parameters");
 		this.context = context;
 		this.remoteViews = remoteViews;
+		this.eazyMode = easyMode;
 		update(remoteViews);
 	}
 	public void update(RemoteViews remoteViews){
