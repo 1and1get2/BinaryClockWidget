@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
 import android.widget.RemoteViews;
 
 import com.learn.derek.binaryclockwidget.misc.Constants;
@@ -19,7 +18,7 @@ import com.learn.derek.binaryclockwidget.misc.Constants;
 public class BinaryClockWidget extends AppWidgetProvider {
     private static final String TAG = "BinaryClockWidget";
     private static final boolean D = Constants.DEBUG;
-    public static final String ACTION_AUTO_UPDATE = "AUTO_UPDATE";
+    public static final String ACTION_AUTO_UPDATE = Constants.ACTION_AUTO_UPDATE;
     //widget views
     RemoteViews views;
 
@@ -33,20 +32,23 @@ public class BinaryClockWidget extends AppWidgetProvider {
         if (AppWidgetManager.ACTION_APPWIDGET_UPDATE.equals(action))
         {
 
-        } else if (intent.getAction().equals(ACTION_AUTO_UPDATE))
-        {
-            // DO SOMETHING
+        } else if (AppWidgetManager.ACTION_APPWIDGET_DELETED.equals(action)
+		        || AppWidgetManager.ACTION_APPWIDGET_DISABLED.equals(action)) {
+	        super.onReceive(context, intent);
 
+	        // Calendar, Time or a settings change, force a calendar refresh
         } else if (Intent.ACTION_PROVIDER_CHANGED.equals(action)
                 || Intent.ACTION_TIME_CHANGED.equals(action)
                 || Intent.ACTION_TIMEZONE_CHANGED.equals(action)
                 || Intent.ACTION_DATE_CHANGED.equals(action)
                 || Intent.ACTION_LOCALE_CHANGED.equals(action)
+		        || Intent.ACTION_TIME_TICK.equals(action)   //TODO time tick does not work
                 || "android.intent.action.ALARM_CHANGED".equals(action)) {
             //updateAppWidget(context, null);
             if (D) Log.i(TAG, "Received time/date/etc. update intent, refreshing");
             // There are no events to show in the Calendar panel, hide it explicitly
         }
+	    updateAppWidget(context, null, 0);
     }
     @Override
     public void onAppWidgetOptionsChanged(Context context, AppWidgetManager appWidgetManager, int appWidgetId, Bundle bundle) {
@@ -55,16 +57,8 @@ public class BinaryClockWidget extends AppWidgetProvider {
         int minHeight = bundle.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT);
         int maxHeight = bundle.getInt(AppWidgetManager.OPTION_APPWIDGET_MAX_HEIGHT);
         RemoteViews rv = null;
-        //Size of a 2x1 widget on a Nexus 4 (other screen densities will differ)
-/*        if(minWidth == 152 && maxWidth == 196 && minHeight == 58 && maxHeight == 84){
-            rv = new RemoteViews(context.getPackageName(), R.layout.hour_min_widget);
-        } else {
-            rv = new RemoteViews(context.getPackageName(), R.layout.hour_min_widget);
-        }*/
-
         Log.i(TAG, "onAppWidgetOptionsChanged");
-        /* Set some stuff in your layout here */
-        //appWidgetManager.updateAppWidget(appWidgetId, rv);
+        updateAppWidget(context, appWidgetManager, appWidgetId);
     }
 
     @Override
@@ -89,36 +83,32 @@ public class BinaryClockWidget extends AppWidgetProvider {
     public void onEnabled(Context context) {
         // Enter relevant functionality for when the first widget is created
         // start alarm
-        AppWidgetAlarm appWidgetAlarm = new AppWidgetAlarm(context.getApplicationContext());
-        appWidgetAlarm.startAlarm();
+//        AppWidgetAlarm appWidgetAlarm = new AppWidgetAlarm(context.getApplicationContext());
+//        appWidgetAlarm.startAlarm();
         Log.i(TAG, "onEnabled");
+	    final WidgetApplication app = (WidgetApplication) context.getApplicationContext();
+	    app.startTickReceiver();
     }
 
     @Override
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
         // stop alarm
-        AppWidgetAlarm appWidgetAlarm = new AppWidgetAlarm(context.getApplicationContext());
-        appWidgetAlarm.stopAlarm();
         Log.i(TAG, "onDisabled");
+	    WidgetApplication.cancelClockRefresh(context);
     }
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-        CharSequence widgetText = BinaryClockWidgetConfigureActivity.loadTitlePref(context, appWidgetId);
-        // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.hour_min_widget);
 
-	    views.setTextViewText(R.id.tv_date, widgetText);
-	    int x,y;
-	    x = (int)Math.random()*4; y = (int)Math.random()*4;
-	    ImageView iv = new ImageView(context);
-	    iv.setImageResource(R.drawable.appwidget_dark_bg_focused);
-	    //FrameLayout fl = (FrameLayout) views.setImageViewResource();
-	    views.setImageViewResource(R.id.imageView_cell_3_3, R.drawable.appwidget_dark_bg_focused);
-        // Instruct the widget manager to update the widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
+	    Intent i = new Intent(context.getApplicationContext(), ClockWidgetService.class);
+
+		i.setAction(Constants.REFRESH);
+
+	    // Start the service. The service itself will take care of scheduling refreshes if needed
+	    if (D) Log.d(TAG, "Starting the service to update the widgets...");
+	    context.startService(i);
     }
 }
 

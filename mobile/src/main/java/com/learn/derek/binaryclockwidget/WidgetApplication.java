@@ -79,9 +79,8 @@ public class WidgetApplication extends Application {
     }
 
     private static PendingIntent getClockRefreshIntent(Context context) {
-        //Intent i = new Intent(context, ClockWidgetService.class);
-        //i.setAction(ClockWidgetService.ACTION_REFRESH);
-        //return PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
-        return null;
+	    Intent i = new Intent(context, ClockWidgetService.class);
+	    i.setAction(Constants.ACTION_AUTO_UPDATE);
+	    return PendingIntent.getService(context, 0, i, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 }

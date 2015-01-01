@@ -6,14 +6,26 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+	    android:name=".WidgetApplication">
         <receiver android:name=".BinaryClockWidget" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="AUTO_UPDATE" />
-            </intent-filter>
+	            <action android:name="com.learn.derek.binaryclockwidget.REFRESH" />
+	            <action android:name="com.learn.derek.binaryclockwidget.AUTO_UPDATE" />
+	            <action android:name="com.learn.derek.binaryclockwidget.ACTION_HIDE_WEEK_DAY" />
+	            <action android:name="com.learn.derek.binaryclockwidget.ACTION_HIDE_DATE" />
+		        <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+		        <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+		        <action android:name="android.intent.action.DATE_CHANGED"/>
+		        <action android:name="android.intent.action.TIME_SET"/>
+		        <action android:name="android.intent.action.LOCALE_CHANGED"/>
+		        <action android:name="android.intent.action.ALARM_CHANGED"/>
+		        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+		        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+		        <action android:name="com.android.deskclock.NEXT_ALARM_TIME_SET"/>
+		        <action android:name="com.cyanogenmod.lockclock.action.SHOW_FORECAST" />
+	        </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/binary_clock_widget_info" />
@@ -25,6 +37,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+	    <service android:name=".ClockWidgetService" />
     </application>
 
 </manifest>

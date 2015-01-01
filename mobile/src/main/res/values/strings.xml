@@ -8,5 +8,25 @@
     <string name="appwidget_text">EXAMPLE</string>
     <string name="configure">Configure</string>
     <string name="add_widget">Add widget</string>
+	<string name="loading_indicator">Loading Widget</string>
 
+	<!-- Formating strings for widget clock -->
+	<string name="widget_12_hours_format_h" translatable="false">h</string>
+	<string name="widget_12_hours_format_no_ampm_m" translatable="false">mm</string>
+	<string name="widget_12_hours_format_m" translatable="false">mm<font size="15">aa</font></string>
+
+	<!-- java.text.SimpleDateFormat uses H for hours in the 0-23 range and
+		 android.text.format.DateFormat uses k for hours in the 0-23 range.
+		 We need to support both -->
+	<string name="widget_24_hours_format_h" translatable="false">kk</string>
+	<string name="widget_24_hours_format_h_api_16" translatable="false">HH</string>
+	<string name="widget_24_hours_format_m" translatable="false">mm</string>
+
+	<!-- String matching the lock screen format for displaying the date. -->
+	<string name="abbrev_wday_month_day_no_year">EEE, MMMM d</string>
+	<!-- Format for describing the date, for accessibility. -->
+	<string name="full_wday_month_day_no_year">EEEE, MMMM d</string>
+
+	<string name="no_wday_month_day_no_year">MMMM d</string>
+	<string name="full_wday">EEEE</string>
 </resources>
