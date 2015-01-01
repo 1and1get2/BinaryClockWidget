@@ -177,6 +177,11 @@
 					    android:layout_margin="2dp"
 					    android:contentDescription="cell image view"
 					    />
+				    <Button
+					    android:layout_width="fill_parent"
+					    android:layout_height="fill_parent"
+					    android:layout_weight="0.25"
+					    />
 				    <ImageView
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"

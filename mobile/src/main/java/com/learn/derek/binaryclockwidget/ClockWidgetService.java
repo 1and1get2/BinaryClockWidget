@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 
+import com.learn.derek.binaryclockwidget.misc.BinaryUtil;
 import com.learn.derek.binaryclockwidget.misc.Constants;
 import com.learn.derek.binaryclockwidget.misc.Utils;
 
@@ -32,6 +33,7 @@ public class ClockWidgetService extends IntentService {
 
 	private static boolean mShowWDay = true;
 	private static boolean mShowDate = true;
+	private static BinaryUtil mUtil;
 
 	private int[] mWidgetIds;
 	private AppWidgetManager mAppWidgetManager;
@@ -47,6 +49,7 @@ public class ClockWidgetService extends IntentService {
 		ComponentName thisWidget = new ComponentName(this, BinaryClockWidget.class);
 		mAppWidgetManager = AppWidgetManager.getInstance(this);
 		mWidgetIds = mAppWidgetManager.getAppWidgetIds(thisWidget);
+		//mUtil = new BinaryUtil();
 	}
 
 	@Override
@@ -127,7 +130,8 @@ public class ClockWidgetService extends IntentService {
 		remoteViews.setTextViewText(R.id.tv_date, date);
 		remoteViews.setTextViewText(R.id.loading_indicator, hours + " : " + minutes);
 
-
+		//using BinaryUtil();
+		mUtil = new BinaryUtil(this, remoteViews, Integer.parseInt(hours), Integer.parseInt(minutes));
 	}
 	private String getHourFormat() {
 		String format;
