@@ -38,37 +38,38 @@
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_3_3">
+					    android:id="@+id/cell_3_3"
+					    android:layout_margin="8dp"
+					    android:padding="0dp"
+					    >
 
 				    </FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_3_2">
+					    android:id="@+id/cell_3_2"
+					    android:layout_margin="8dp"
+					    >
 
 				    </FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_3_1">
+					    android:id="@+id/cell_3_1"
+					    android:layout_margin="8dp"
+					    >
 
 				    </FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_3_0">
+					    android:id="@+id/cell_3_0"
+					    android:layout_margin="8dp"
+					    >
 
 				    </FrameLayout>
 			    </LinearLayout>
@@ -82,37 +83,37 @@
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_2_3">
+					    android:id="@+id/cell_2_3"
+					    android:layout_margin="8dp"
+					    >
 
 				    </FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_2_2">
+					    android:id="@+id/cell_2_2"
+					    android:layout_margin="8dp"
+					    >
 
 				    </FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_2_1">
+					    android:id="@+id/cell_2_1"
+					    android:layout_margin="8dp"
+					    >
 
 				    </FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_2_0">
+					    android:id="@+id/cell_2_0"
+					    android:layout_margin="8dp"
+					    >
 
 				    </FrameLayout>
 			    </LinearLayout>
@@ -136,37 +137,37 @@
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_1_3">
+					    android:id="@+id/cell_1_3"
+					    android:layout_margin="8dp"
+					    >
 
 					</FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_1_2">
+					    android:id="@+id/cell_1_2"
+					    android:layout_margin="8dp"
+					    >
 
 					</FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_1_1">
+					    android:id="@+id/cell_1_1"
+					    android:layout_margin="8dp"
+					    >
 
 					</FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_1_0">
+					    android:id="@+id/cell_1_0"
+					    android:layout_margin="8dp"
+					    >
 
 				    </FrameLayout>
 			    </LinearLayout>
@@ -180,37 +181,37 @@
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_0_3">
+					    android:id="@+id/cell_0_3"
+					    android:layout_margin="8dp"
+					    >
 
 					</FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_0_2">
+					    android:id="@+id/cell_0_2"
+					    android:layout_margin="8dp"
+					    >
 
 					</FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_0_1">
+					    android:id="@+id/cell_0_1"
+					    android:layout_margin="8dp"
+					    >
 
 					</FrameLayout>
 				    <FrameLayout
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
-					    android:layout_alignParentBottom="true"
-					    android:layout_alignParentEnd="true"
 					    android:layout_weight="0.25"
-					    android:id="@+id/cell_0_0">
+					    android:id="@+id/cell_0_0"
+					    android:layout_margin="8dp"
+					    >
 
 				    </FrameLayout>
 			    </LinearLayout>
