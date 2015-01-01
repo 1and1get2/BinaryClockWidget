@@ -177,11 +177,7 @@
 					    android:layout_margin="2dp"
 					    android:contentDescription="cell image view"
 					    />
-				    <Button
-					    android:layout_width="fill_parent"
-					    android:layout_height="fill_parent"
-					    android:layout_weight="0.25"
-					    />
+
 				    <ImageView
 					    android:layout_width="fill_parent"
 					    android:layout_height="fill_parent"
@@ -223,6 +219,14 @@
 	    <TextView
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
+		    android:text="Time"
+		    android:id="@+id/tv_time"
+		    android:layout_alignParentTop="true"
+		    android:layout_centerHorizontal="true"
+		    android:singleLine="true" />
+	    <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
 		    android:text="Date"
 		    android:id="@+id/tv_date"
 		    android:layout_alignParentBottom="true"
@@ -230,8 +234,8 @@
 		    android:singleLine="true" />
 	    <TextView
 		    android:id="@+id/loading_indicator"
-		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
 		    android:textColor="@color/clock_white"
 		    style="@style/label_thin"
 		    android:padding="8dip"

@@ -33,6 +33,7 @@ public class ClockWidgetService extends IntentService {
 
 	private static boolean mShowWDay = true;
 	private static boolean mShowDate = true;
+	private static boolean mShowTime = true;
 	private static BinaryUtil mUtil;
 
 	private int[] mWidgetIds;
@@ -81,6 +82,7 @@ public class ClockWidgetService extends IntentService {
 		//TODO: need a way to store preferences
 		boolean showWDay = mShowWDay;
 		boolean showDate = mShowDate;
+		boolean showTime = mShowTime;
 
 		// Update the widgets
 		for (int id : mWidgetIds) {
@@ -98,15 +100,16 @@ public class ClockWidgetService extends IntentService {
 
 			remoteViews = new RemoteViews(getPackageName(), R.layout.hour_min_widget);
 
-			// TODO: Hide the Loading indicator
-			//remoteViews.setViewVisibility(R.id.loading_indicator, View.GONE);
+
+			remoteViews.setViewVisibility(R.id.loading_indicator, View.GONE);
 
 
 
-			// Hide/Show WDay/DATE
+			// Hide/Show WDay/DATE/TIME
 			// TODO: apply the preference font and format
 			remoteViews.setViewVisibility(R.id.tv_date, (showDate?View.VISIBLE:View.GONE));
 			remoteViews.setViewVisibility(R.id.tv_wday, (showWDay?View.VISIBLE:View.GONE));
+			remoteViews.setViewVisibility(R.id.tv_time, (showTime?View.VISIBLE:View.GONE));
 
 			// Always Refresh the Clock widget
 			refreshClock(remoteViews);
@@ -116,6 +119,7 @@ public class ClockWidgetService extends IntentService {
 		}
 	}
 	private void refreshClock(RemoteViews remoteViews){
+
 		Locale locale = Locale.getDefault();
 		Date now = new Date();
 		String dateFormat = getString(R.string.no_wday_month_day_no_year);
@@ -128,7 +132,7 @@ public class ClockWidgetService extends IntentService {
 
 		remoteViews.setTextViewText(R.id.tv_wday, week);
 		remoteViews.setTextViewText(R.id.tv_date, date);
-		remoteViews.setTextViewText(R.id.loading_indicator, hours + " : " + minutes);
+		remoteViews.setTextViewText(R.id.tv_time, hours + " : " + minutes);
 
 		//using BinaryUtil();
 		mUtil = new BinaryUtil(this, remoteViews, Integer.parseInt(hours), Integer.parseInt(minutes));

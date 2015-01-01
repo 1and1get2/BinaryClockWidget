@@ -11,6 +11,11 @@ public class Constants {
 	public static final String ACTION_HIDE_WEEK_DAY = PACKAGE_NAME + ".ACTION_HIDE_WEEK_DAY";
 	public static final String ACTION_HIDE_DATE = PACKAGE_NAME + ".ACTION_HIDE_DATE";
 
-	public static enum CELL_TPYE {DOT, CIRCLE, UNAVAILABLE};
+	public static enum CELL_TYPE {
+		DOT(1), CIRCLE(0), UNAVAILABLE(-1);
+		private final int id;
+		CELL_TYPE(int id) { this.id = id; }
+		public int getValue() { return id; }
+	};
 
 }

@@ -22,6 +22,7 @@ public class BinaryUtil {
 	private final int[] CELLS = {R.id.cell_0,R.id.cell_1,R.id.cell_2,R.id.cell_3};
 
 
+
 	public BinaryUtil(Context context, RemoteViews remoteViews ,int hours, int minutes){
 		this(context, remoteViews, hours, minutes, true);
 		//if (D) Log.v(TAG, "Constructor with 3 parameters");
@@ -33,7 +34,7 @@ public class BinaryUtil {
 		this.remoteViews = remoteViews;
 		this.hours = hours;
 		this.minutes = minutes;
-		updateRemoteViews(remoteViews);
+		//updateRemoteViews(remoteViews);
 	}
 
 	private void updateRemoteViews(RemoteViews remoteViews){
@@ -55,6 +56,18 @@ public class BinaryUtil {
 		}
 
 	}
-
-
+	private int cellTypeToImageId(Constants.CELL_TYPE type){
+		int result;
+		switch (type){
+			case CIRCLE:
+				result = R.drawable.appwidget_dark_bg_focused;
+				break;
+			case DOT:
+				result = R.drawable.appwidget_bg_pressed;
+				break;
+			default:
+				result = R.drawable.appwidget_bg;
+		}
+		return result;
+	}
 }
