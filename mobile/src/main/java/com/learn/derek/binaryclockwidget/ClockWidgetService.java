@@ -29,7 +29,7 @@ public class ClockWidgetService extends IntentService {
 	private static boolean mShowWDay = true;
 	private static boolean mShowDate = true;
 	private static boolean mShowTime = true;
-	private static BinaryUtil mUtil;
+	private static BinaryUtil mBUtil;
 
 	private int[] mWidgetIds;
 	private AppWidgetManager mAppWidgetManager;
@@ -114,8 +114,8 @@ public class ClockWidgetService extends IntentService {
 		}
 	}
 	private void refreshClock(RemoteViews remoteViews){
-		if (mUtil == null) mUtil = new BinaryUtil(this, remoteViews, true);
-		mUtil.update(remoteViews);
+		if (mBUtil == null) mBUtil = new BinaryUtil(this, remoteViews, true);
+		mBUtil.update(remoteViews);
 
 		//using BinaryUtil();
 		//mUtil = new BinaryUtil(this, remoteViews, Integer.parseInt(hours), Integer.parseInt(minutes));
